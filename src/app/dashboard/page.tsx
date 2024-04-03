@@ -12,10 +12,10 @@ const Dashboard = () => {
     <div className="max-w-7xl mx-auto">
       <Navbar />
       <main className="container mx-auto px-4 py-8">
+        <LineChart />
         {/* <DoughnutChart />
         <StackChart />
-        <PieChart />
-        <LineChart /> */}
+        <PieChart /> */}
       </main>
     </div>
   );
