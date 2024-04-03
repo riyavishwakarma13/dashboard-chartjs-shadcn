@@ -4,17 +4,19 @@ import { useRouter } from "next/navigation";
 import LineChart from "@/charts/LineChart";
 import PieChart from "@/charts/PieChart";
 import StackChart from "@/charts/StackChart";
+import DoughnutChart from "@/charts/DoughnutChart";
+import Navbar from "@/components/Navbar";
 
 const Dashboard = () => {
   return (
-    <div>
-      {" "}
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold text-center">Analytics Dashboard</h1>
+    <div className="max-w-7xl mx-auto">
+      <Navbar />
+      <main className="container mx-auto px-4 py-8">
+        {/* <DoughnutChart />
         <StackChart />
-        {/* <PieChart /> */}
-        {/* <LineChart /> */}
-      </div>
+        <PieChart />
+        <LineChart /> */}
+      </main>
     </div>
   );
 };
