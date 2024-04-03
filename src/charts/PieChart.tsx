@@ -1,30 +1,15 @@
 "use client";
+import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
 import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend,
-  LinearScale,
-  CategoryScale,
-  ArcElement,
-} from "chart.js";
-import useData from "@/hooks/useData";
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Pie } from "react-chartjs-2";
 
-ChartJS.register(
-  LinearScale,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  ArcElement,
-  CategoryScale,
-  Filler,
-  Tooltip,
-  Legend
-);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = () => {
   const chartData = {
@@ -53,7 +38,24 @@ const PieChart = () => {
       },
     ],
   };
-  return <Pie data={chartData} />;
+
+  const options = {
+    maintainAspectRatio: true,
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Top Performing Pages</CardTitle>
+        <CardDescription>
+          Hover on the pie chart to see the number of visitors
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="max-w-2xl mx-auto">
+        <Pie data={chartData} options={options} />
+      </CardContent>
+    </Card>
+  );
 };
 
 export default PieChart;

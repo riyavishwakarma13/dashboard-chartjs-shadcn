@@ -10,14 +10,7 @@ import {
   LinearScale,
   CategoryScale,
 } from "chart.js";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 
@@ -159,27 +152,25 @@ const LineChart = () => {
   };
 
   return (
-    <div>
-      <Card>
-        <div className="flex flex-wrap justify-between items-center px-4 gap-2">
-          <CardHeader>
-            <CardTitle>Website Traffic Overview</CardTitle>
-          </CardHeader>
-          <select
-            value={timeframe}
-            className="border border-gray-200 px-4 py-2 rounded-lg"
-            onChange={handleTimeframeChange}
-          >
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
-          </select>
-        </div>
-        <CardContent>
-          <Line data={chartData} options={option} />
-        </CardContent>
-      </Card>
-    </div>
+    <Card>
+      <div className="flex flex-wrap justify-between items-center py-5 px-4 gap-2">
+        <CardHeader>
+          <CardTitle>Website Traffic Overview</CardTitle>
+        </CardHeader>
+        <select
+          value={timeframe}
+          className="border border-gray-200 px-4 py-2 rounded-lg"
+          onChange={handleTimeframeChange}
+        >
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </div>
+      <CardContent>
+        <Line data={chartData} options={option} />
+      </CardContent>
+    </Card>
   );
 };
 
