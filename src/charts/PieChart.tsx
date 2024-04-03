@@ -45,9 +45,9 @@ const PieChart = () => {
 
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="py-8 px-6">
         <CardTitle>Top Performing Pages</CardTitle>
-        <CardDescription>
+        <CardDescription className="capitalize">
           Hover on the pie chart to see the number of visitors
         </CardDescription>
       </CardHeader>

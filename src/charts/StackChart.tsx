@@ -22,6 +22,7 @@ ChartJS.register(
 const StackChart = () => {
   const options = {
     responsive: true,
+    maintainAspectRatio: true,
     scales: {
       x: {
         stacked: true,
@@ -47,12 +48,12 @@ const StackChart = () => {
     datasets: [
       {
         label: "Total Visitors",
-        data: [1000, 1200, 850, 1150, 980, 1320, 1500],
+        data: [1000, 1200, 850, 1150, 980, 1320, 15],
         backgroundColor: "rgb(255, 99, 132)",
       },
       {
         label: "Unqiue Visitors",
-        data: [750, 880, 620, 850, 720, 980, 1100],
+        data: [750, 880, 620, 850, 720, 980, 11],
         backgroundColor: "rgb(75, 192, 192)",
       },
     ],

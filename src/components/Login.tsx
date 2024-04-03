@@ -1,16 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 
 const defaultUsername = "admin";
@@ -31,7 +21,7 @@ const Login = () => {
         return;
       }
 
-      console.log("Successful Login (for demonstration only)"); // Replace with actual logic
+      console.log("Successful Login (for demonstration only)");
 
       router.push("/dashboard");
     } catch (error) {

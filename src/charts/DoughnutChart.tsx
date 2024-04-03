@@ -28,6 +28,7 @@ const DoughnutChart = () => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: true,
   };
 
   return <Doughnut data={data} options={options} />;

@@ -1,7 +1,6 @@
 "use client";
 import {
   Chart as ChartJS,
-  RadialLinearScale,
   PointElement,
   LineElement,
   Filler,
@@ -13,10 +12,10 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+import { Label } from "@/components/ui/label";
 
 ChartJS.register(
   LinearScale,
-  RadialLinearScale,
   PointElement,
   LineElement,
   CategoryScale,
@@ -157,15 +156,18 @@ const LineChart = () => {
         <CardHeader>
           <CardTitle>Website Traffic Overview</CardTitle>
         </CardHeader>
-        <select
-          value={timeframe}
-          className="border border-gray-200 px-4 py-2 rounded-lg"
-          onChange={handleTimeframeChange}
-        >
-          <option value="daily">Daily</option>
-          <option value="weekly">Weekly</option>
-          <option value="monthly">Monthly</option>
-        </select>
+        <div className="space-x-3">
+          <Label className="text-lg">Filter by:</Label>
+          <select
+            value={timeframe}
+            className="border border-gray-200 px-4 py-2 rounded-lg"
+            onChange={handleTimeframeChange}
+          >
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
       </div>
       <CardContent>
         <Line data={chartData} options={option} />
