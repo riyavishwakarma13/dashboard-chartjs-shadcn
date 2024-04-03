@@ -60,11 +60,7 @@ const LineChart = () => {
     ],
   };
 
-  return (
-    <div className="max-w-7xl w-full mx-auto">
-      <Line data={chartData} />
-    </div>
-  );
+  return <Line data={chartData} />;
 };
 
 export default LineChart;
