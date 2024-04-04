@@ -18,12 +18,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
-    setIsLoggedIn(storedIsLoggedIn === "true"); // Check for stored value
-  }, []); // Run only on initial render
+    setIsLoggedIn(storedIsLoggedIn === "true"); // Checks for stored value
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
-    setIsLoggedIn(false); // Update context state
+    setIsLoggedIn(false);
   };
 
   return (

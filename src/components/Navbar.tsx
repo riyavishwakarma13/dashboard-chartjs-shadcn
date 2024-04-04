@@ -1,5 +1,5 @@
+"use client";
 import { Menubar, MenubarMenu } from "@/components/ui/menubar";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const handleLogoutClick = () => {
     handleLogout();
-    router.push("/login"); // Redirect to login after logout
+    router.push("/"); // Redirects to login after logout
   };
   return (
     <Menubar className="sticky top-2 w-full h-14 backdrop-blur-md px-3 bg-white/25">

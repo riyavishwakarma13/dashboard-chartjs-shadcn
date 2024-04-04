@@ -19,11 +19,9 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Replace with your actual authentication logic (e.g., API call)
     if (formData.username === "admin" && formData.password === "admin") {
       localStorage.setItem("isLoggedIn", "true");
-      setIsLoggedIn(true); // Update context state
+      setIsLoggedIn(true);
       router.push("/dashboard");
     } else {
       alert("Invalid username or password");
@@ -76,7 +74,7 @@ const Login = () => {
                 className="w-full bg-black text-white px-4 py-2 rounded-lg"
               >
                 Login
-              </button>             
+              </button>
             </form>
           </CardContent>
         </Card>
