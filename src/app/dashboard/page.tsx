@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LineChart from "@/charts/LineChart";
 import PieChart from "@/charts/PieChart";
 import Navbar from "@/components/Navbar";

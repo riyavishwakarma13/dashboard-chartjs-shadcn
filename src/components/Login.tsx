@@ -1,32 +1,32 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
+import AuthContext from "@/lib/context";
 
-const defaultUsername = "admin";
-const defaultPassword = "admin";
+interface LoginFormData {
+  username: string;
+  password: string;
+}
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [formData, setFormData] = useState<LoginFormData>({
+    username: "",
+    password: "",
+  });
   const router = useRouter();
+  const { setIsLoggedIn } = useContext(AuthContext);
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      if (username !== defaultUsername || password !== defaultPassword) {
-        setError("Invalid username or password");
-        return;
-      }
-
-      console.log("Successful Login (for demonstration only)");
-
+    // Replace with your actual authentication logic (e.g., API call)
+    if (formData.username === "admin" && formData.password === "admin") {
+      localStorage.setItem("isLoggedIn", "true");
+      setIsLoggedIn(true); // Update context state
       router.push("/dashboard");
-    } catch (error) {
-      console.error(error);
-      setError("An error occurred. Please try again.");
+    } else {
+      alert("Invalid username or password");
     }
   };
 
@@ -38,7 +38,7 @@ const Login = () => {
             <CardTitle className="text-center">Login</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={onSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-1">
                 <label className="font-medium" htmlFor="username">
                   Username:
@@ -49,8 +49,10 @@ const Login = () => {
                   name="username"
                   placeholder="admin"
                   className="w-full border border-gray-300 px-4 py-2 rounded-lg"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={formData.username}
+                  onChange={(e) =>
+                    setFormData({ ...formData, username: e.target.value })
+                  }
                 />
               </div>
               <div className="space-y-1">
@@ -63,8 +65,10 @@ const Login = () => {
                   name="password"
                   className="w-full border border-gray-300 px-4 py-2 rounded-lg"
                   placeholder="*****"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={formData.password}
+                  onChange={(e) =>
+                    setFormData({ ...formData, password: e.target.value })
+                  }
                 />
               </div>
               <button
@@ -72,8 +76,7 @@ const Login = () => {
                 className="w-full bg-black text-white px-4 py-2 rounded-lg"
               >
                 Login
-              </button>
-              {error && <p className="text-red-500">{error}</p>}
+              </button>             
             </form>
           </CardContent>
         </Card>
