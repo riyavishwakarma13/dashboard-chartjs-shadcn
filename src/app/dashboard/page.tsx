@@ -1,11 +1,21 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import LineChart from "@/charts/LineChart";
 import PieChart from "@/charts/PieChart";
 import Navbar from "@/components/Navbar";
 import UserDemographic from "@/components/UserDemographic";
+import { useRouter } from "next/navigation";
+import AuthContext from "@/lib/context";
 
 const Dashboard = () => {
+  const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
+
+  if (!isLoggedIn) {
+    router.push("/"); // Redirect to login if not logged in
+    return null; // Prevent unnecessary rendering
+  }
+
   return (
     <div className="max-w-7xl mx-auto">
       <Navbar />
