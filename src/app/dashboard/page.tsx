@@ -10,7 +10,6 @@ import AuthContext from "@/lib/context";
 const Dashboard = () => {
   const router = useRouter();
   const { isLoggedIn } = useContext(AuthContext);
-
   if (!isLoggedIn) {
     router.push("/"); // Redirect to login if not logged in
     return null; // Prevent unnecessary rendering
