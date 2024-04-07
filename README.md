@@ -1,3 +1,7 @@
+## Project Info
+
+Dashboard is built using Shadcn, with static data displaying various charts(react-chart-js)
+
 ## Getting Started
 
 First, run the development server:
