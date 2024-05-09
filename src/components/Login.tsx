@@ -3,6 +3,9 @@ import React, { useContext, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import AuthContext from "@/lib/context";
+import PieChart from "@/charts/PieChart";
+import LineChart from './../charts/LineChart';
+import DoughnutChart from './../charts/DoughnutChart';
 
 interface LoginFormData {
   username: string;
@@ -14,6 +17,7 @@ const Login = () => {
     username: "",
     password: "",
   });
+  const a = "d";
   const router = useRouter();
   const { setIsLoggedIn } = useContext(AuthContext);
 
